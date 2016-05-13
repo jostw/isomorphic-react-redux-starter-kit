@@ -9,22 +9,23 @@
 
 'use strict';
 
-import fs from 'fs';
-import path from 'path';
-
 import express from 'express';
+
+import React from 'react';
+import ReactDOMServer from 'react-dom/server';
+
+import Index from './js/components/Index.jsx';
 
 const app = express();
 
 app.get('/', (req, res) => {
-    let index = fs.readFileSync(path.resolve(__dirname, 'template/index.html'))
-                  .toString();
+    const index = React.createElement(Index);
 
-    res.send(index);
+    res.send('<!DOCTYPE html>' + ReactDOMServer.renderToStaticMarkup(index));
 });
 
 app.use(express.static('public'));
 
 app.listen(3000, () => {
-    console.log('Example app listening on port 3000!');
+    console.log('Server listening on port 3000!');
 });

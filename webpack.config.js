@@ -22,7 +22,7 @@ module.exports = {
                 test: /\.css$/,
                 loader: "style!css"
             }, {
-                test: /\.js$/,
+                test: /\.jsx?$/,
                 exclude: /node_modules/,
                 loader: 'babel'
             }
