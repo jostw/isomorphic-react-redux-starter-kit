@@ -9,14 +9,22 @@
 
 'use strict';
 
+import fs from 'fs';
+import path from 'path';
+
 import express from 'express';
 
 const app = express();
 
-app.get('/', function (req, res) {
-  res.send('Hello World!');
+app.get('/', (req, res) => {
+    let index = fs.readFileSync(path.resolve(__dirname, 'template/index.html'))
+                  .toString();
+
+    res.send(index);
 });
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
+app.use(express.static('public'));
+
+app.listen(3000, () => {
+    console.log('Example app listening on port 3000!');
 });
