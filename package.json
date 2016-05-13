@@ -1,0 +1,19 @@
+{
+  "name": "isomorphic-react-redux-starter-kit",
+  "version": "0.0.1",
+  "description": "Starter kit for isomorphic React and Redux application.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jostw/isomorphic-react-redux-starter-kit.git"
+  },
+  "author": "jos <mail@jos.tw>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jostw/isomorphic-react-redux-starter-kit/issues"
+  },
+  "homepage": "https://github.com/jostw/isomorphic-react-redux-starter-kit#readme"
+}
