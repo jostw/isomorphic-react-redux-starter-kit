@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "babel-node app.js",
-    "build": "webpack -p"
+    "build": "webpack -p",
+    "postbuild": "babel-node app.js"
   },
   "repository": {
     "type": "git",
