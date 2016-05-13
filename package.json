@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/jostw/isomorphic-react-redux-starter-kit/issues"
   },
-  "homepage": "https://github.com/jostw/isomorphic-react-redux-starter-kit#readme"
+  "homepage": "https://github.com/jostw/isomorphic-react-redux-starter-kit#readme",
+  "devDependencies": {
+    "react": "^15.0.2"
+  }
 }
