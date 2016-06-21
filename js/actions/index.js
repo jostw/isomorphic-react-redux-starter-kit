@@ -9,14 +9,14 @@
 
 'use strict';
 
-export const routesConfig = {
-    home: {
-        title: 'Home',
-        path: '/'
-    },
+/*
+ * Action types
+ */
+export const UPDATE_TIME = 'UPDATE_TIME';
 
-    about: {
-        title: 'About',
-        path: '/about'
-    }
-};
+/*
+ * Action creators
+ */
+export function updateTime(time) {
+    return { type: UPDATE_TIME, time };
+}

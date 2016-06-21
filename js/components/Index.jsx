@@ -10,10 +10,15 @@
 'use strict';
 
 import React from 'react';
+import { Provider } from 'react-redux';
 import { RouterContext } from 'react-router';
+
+import configureStore from '../stores/configureStore';
 
 class Index extends React.Component {
     render() {
+        const store = configureStore(this.props.initialState);
+
         return (
             <html>
                 <head>
@@ -28,7 +33,9 @@ class Index extends React.Component {
                     <p>Hello world! This is Isomorphic React Redux Starter Kit.</p>
 
                     <div id='app'>
-                        <RouterContext {...this.props.renderProps} />
+                        <Provider store={ store }>
+                            <RouterContext {...this.props.renderProps} />
+                        </Provider>
                     </div>
 
                     <script src='js/script.js'></script>

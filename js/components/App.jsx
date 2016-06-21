@@ -10,18 +10,40 @@
 'use strict';
 
 import React from 'react';
+import { connect } from 'react-redux';
+
+import { updateTime } from '../actions';
 
 import Nav from './Nav.jsx';
 
 class App extends React.Component {
+    constructor() {
+        super();
+
+        this.updateTime = this.updateTime.bind(this);
+    }
+
     render() {
         return (
             <div>
-                <Nav />
-                { this.props.children }
+                <Nav navigation={ this.props.navigation } />
+                { React.cloneElement(this.props.children, { time: this.props.time }) }
+                <button onClick={ this.updateTime }>update</button>
             </div>
         );
     }
+
+    updateTime(e) {
+        e.preventDefault();
+
+        this.props.dispatch(updateTime(new Date().toISOString()));
+    }
 }
 
-export default App;
+function mapStateToProps(state) {
+    console.log(state);
+
+    return state;
+}
+
+export default connect(mapStateToProps)(App);

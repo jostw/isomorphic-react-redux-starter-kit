@@ -14,7 +14,10 @@ import React from 'react';
 class About extends React.Component {
     render() {
         return (
-            <h1>The first rule of Fight Club is: you do not talk about Fight Club.</h1>
+            <div>
+                <h1>The first rule of Fight Club is: you do not talk about Fight Club.</h1>
+                <div>{ this.props.time }</div>
+            </div>
         );
     }
 }

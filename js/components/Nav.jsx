@@ -12,20 +12,21 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-import { routes } from '../app/config';
+import { routesConfig } from '../app/config';
 
 class Nav extends React.Component {
     render() {
         return (
             <nav>
-                <ul>
-                    <li>
-                        <Link to={ routes.home.path }>{ routes.home.title }</Link>
-                    </li>
-                    <li>
-                        <Link to={ routes.about.path }>{ routes.about.title }</Link>
-                    </li>
-                </ul>
+                <ul>{
+                    this.props.navigation.map(route => {
+                        return (
+                            <li key={ route.title }>
+                                <Link to={ route.path }>{ route.title }</Link>
+                            </li>
+                        );
+                    })
+                }</ul>
             </nav>
         );
     }

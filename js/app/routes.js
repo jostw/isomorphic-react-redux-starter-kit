@@ -9,7 +9,7 @@
 
 'use strict';
 
-import { routes } from './config';
+import { routesConfig } from './config';
 
 import App from '../components/App.jsx';
 import Home from '../components/Home.jsx';
@@ -17,11 +17,11 @@ import About from '../components/About.jsx';
 
 export default [
     {
-        path: routes.home.path,
+        path: routesConfig.home.path,
         component: App,
         indexRoute: { component: Home },
         childRoutes: [
-            { path: routes.about.path, component: About }
+            { path: routesConfig.about.path, component: About }
         ]
     }
 ];
