@@ -13,11 +13,13 @@ import 'normalize.css';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Router, browserHistory } from 'react-router';
 
-import App from './components/App.jsx';
+import routes from './app/routes.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-    const app = React.createElement(App);
-
-    ReactDOM.render(app, document.getElementById('app'));
+    ReactDOM.render(
+        React.createElement(Router, { history: browserHistory }, routes),
+        document.getElementById('app')
+    );
 });

@@ -11,17 +11,12 @@
 
 import React from 'react';
 
-import Nav from './Nav.jsx';
-
-class App extends React.Component {
+class About extends React.Component {
     render() {
         return (
-            <div>
-                <Nav />
-                { this.props.children }
-            </div>
+            <h1>The first rule of Fight Club is: you do not talk about Fight Club.</h1>
         );
     }
 }
 
-export default App;
+export default About;

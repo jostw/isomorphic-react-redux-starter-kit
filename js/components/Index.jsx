@@ -10,8 +10,7 @@
 'use strict';
 
 import React from 'react';
-
-import App from './App.jsx';
+import { RouterContext } from 'react-router';
 
 class Index extends React.Component {
     render() {
@@ -29,7 +28,7 @@ class Index extends React.Component {
                     <p>Hello world! This is Isomorphic React Redux Starter Kit.</p>
 
                     <div id='app'>
-                        <App />
+                        <RouterContext {...this.props.renderProps} />
                     </div>
 
                     <script src='js/script.js'></script>

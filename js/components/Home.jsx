@@ -11,17 +11,12 @@
 
 import React from 'react';
 
-import Nav from './Nav.jsx';
-
-class App extends React.Component {
+class Home extends React.Component {
     render() {
         return (
-            <div>
-                <Nav />
-                { this.props.children }
-            </div>
+            <h1>There's no place like home.</h1>
         );
     }
 }
 
-export default App;
+export default Home;
