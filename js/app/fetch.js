@@ -11,7 +11,7 @@
 
 import fetch from 'isomorphic-fetch';
 
-export default (url, callback) => {
+export default (url) => {
     return fetch(url, {
         headers: {
             'X-Requested-With': 'XMLHttpRequest'

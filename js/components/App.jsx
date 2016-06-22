@@ -60,10 +60,20 @@ class App extends React.Component {
     }
 }
 
+/* eslint no-console: 0 */
 function mapStateToProps(state) {
     console.log(state);
 
     return state;
 }
+
+App.propTypes = {
+    location: React.PropTypes.object.isRequired,
+    dispatch: React.PropTypes.func.isRequired,
+
+    children: React.PropTypes.element.isRequired,
+    navigation: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+    time: React.PropTypes.string.isRequired
+};
 
 export default connect(mapStateToProps)(App);

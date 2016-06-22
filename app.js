@@ -68,6 +68,7 @@ app.use((req, res) => {
     });
 });
 
+/* eslint no-console: 0 */
 app.listen(port.app, () => {
     console.log('Server listening on port', port.app);
 });

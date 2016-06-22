@@ -22,4 +22,8 @@ class Home extends React.Component {
     }
 }
 
+Home.propTypes = {
+    time: React.PropTypes.string
+};
+
 export default Home;

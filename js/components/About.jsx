@@ -22,4 +22,8 @@ class About extends React.Component {
     }
 }
 
+About.propTypes = {
+    time: React.PropTypes.string
+};
+
 export default About;
