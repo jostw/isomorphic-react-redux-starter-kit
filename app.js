@@ -15,12 +15,14 @@ import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { match } from 'react-router';
 
+import { port } from './config';
 import { routesConfig } from './js/app/config';
 import routes from './js/app/routes';
 import fetch from './js/app/fetch';
 
 import Index from './js/components/Index.jsx';
 
+const isDev = process.argv.some(arg => arg.match('dev'));
 const app = express();
 
 let requestCount;
@@ -59,13 +61,13 @@ app.use((req, res) => {
 
         fetch(url)
             .then(initialState => {
-                const index = React.createElement(Index, { renderProps, initialState });
+                const index = React.createElement(Index, { isDev, renderProps, initialState });
 
                 res.send('<!DOCTYPE html>' + ReactDOMServer.renderToStaticMarkup(index));
             });
     });
 });
 
-app.listen(3000, () => {
-    console.log('Server listening on port 3000!');
+app.listen(port.app, () => {
+    console.log('Server listening on port', port.app);
 });

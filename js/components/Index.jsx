@@ -13,11 +13,23 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { RouterContext } from 'react-router';
 
+import { port } from '../../config';
 import configureStore from '../stores/configureStore';
 
 class Index extends React.Component {
     render() {
         const store = configureStore(this.props.initialState);
+        const script = (() => {
+            let src = '/js/script.js';
+
+            if (this.props.isDev) {
+                src = 'http://localhost:' + port.webpack + src;
+            }
+
+            return (
+                <script src={ src }></script>
+            );
+        })();
 
         return (
             <html>
@@ -38,7 +50,7 @@ class Index extends React.Component {
                         </Provider>
                     </div>
 
-                    <script src='js/script.js'></script>
+                    { script }
                 </body>
             </html>
         );

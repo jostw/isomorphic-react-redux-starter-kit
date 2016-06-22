@@ -1,0 +1,11 @@
+{
+  "watch": [
+    "app.js",
+    "js/app.js",
+    "js/app/"
+  ],
+  "ext": "js",
+  "execMap": {
+    "js": "babel-node"
+  }
+}
