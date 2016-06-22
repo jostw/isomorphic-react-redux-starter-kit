@@ -12,6 +12,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import fetch from '../app/fetch';
 import { updateTime } from '../actions';
 
 import Nav from './Nav.jsx';
@@ -23,6 +24,18 @@ class App extends React.Component {
         this.updateTime = this.updateTime.bind(this);
     }
 
+    componentDidMount() {
+        this.fetchData(this.props.location.pathname);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (this.props.location.pathname === nextProps.location.pathname) {
+            return;
+        }
+
+        this.fetchData(nextProps.location.pathname);
+    }
+
     render() {
         return (
             <div>
@@ -31,6 +44,13 @@ class App extends React.Component {
                 <button onClick={ this.updateTime }>update</button>
             </div>
         );
+    }
+
+    fetchData(url) {
+        fetch(url)
+            .then(data => {
+                this.props.dispatch(updateTime(data.time));
+            });
     }
 
     updateTime(e) {
