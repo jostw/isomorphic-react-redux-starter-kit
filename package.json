@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/jostw/isomorphic-react-redux-starter-kit#readme",
   "dependencies": {
+    "immutable": "^3.8.1",
     "isomorphic-fetch": "^2.2.1",
     "normalize.css": "^4.1.1",
     "react": "^15.0.2",

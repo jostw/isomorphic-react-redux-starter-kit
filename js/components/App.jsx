@@ -11,6 +11,7 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
+import { List } from "immutable";
 
 import fetch from '../app/fetch';
 import { updateTime } from '../actions';
@@ -72,7 +73,7 @@ App.propTypes = {
     dispatch: React.PropTypes.func.isRequired,
 
     children: React.PropTypes.element.isRequired,
-    navigation: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+    navigation: React.PropTypes.instanceOf(List).isRequired,
     time: React.PropTypes.string.isRequired
 };
 

@@ -10,15 +10,16 @@
 'use strict';
 
 import { combineReducers } from 'redux';
+import { List } from "immutable";
 
 import { routesConfig } from '../app/config';
 import { UPDATE_TIME } from '../actions';
 
 function navigation() {
-    return [
+    return List([
         routesConfig.home,
         routesConfig.about
-    ];
+    ]);
 }
 
 function time(state = '', action) {
