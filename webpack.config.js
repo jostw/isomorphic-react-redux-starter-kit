@@ -11,6 +11,7 @@
 
 var path = require('path');
 var webpack = require('webpack');
+var autoprefixer = require('autoprefixer');
 
 var config = require(path.resolve(__dirname, 'config'));
 
@@ -37,13 +38,17 @@ module.exports = {
         loaders: [
             {
                 test: /\.css$/,
-                loader: 'style!css'
+                loader: 'style!css!postcss'
             }, {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
                 loader: 'react-hot!babel!eslint'
             }
         ]
+    },
+
+    postcss: function() {
+        return [autoprefixer];
     },
 
     plugins: (function() {
