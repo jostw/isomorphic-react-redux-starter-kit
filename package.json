@@ -15,6 +15,15 @@
     "type": "git",
     "url": "git+https://github.com/jostw/isomorphic-react-redux-starter-kit.git"
   },
+  "keywords": [
+    "isomorphic",
+    "react",
+    "redux",
+    "react-router",
+    "immutable",
+    "babel",
+    "webpack"
+  ],
   "author": "jos <mail@jos.tw>",
   "license": "MIT",
   "bugs": {
