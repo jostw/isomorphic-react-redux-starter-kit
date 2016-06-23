@@ -11,7 +11,7 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import { List } from "immutable";
+import { List } from 'immutable';
 
 import fetch from '../app/fetch';
 import { updateTime } from '../actions';

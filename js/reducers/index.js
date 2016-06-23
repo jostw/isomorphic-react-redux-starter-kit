@@ -10,7 +10,7 @@
 'use strict';
 
 import { combineReducers } from 'redux';
-import { List } from "immutable";
+import { List } from 'immutable';
 
 import { routesConfig } from '../app/config';
 import { UPDATE_TIME } from '../actions';

@@ -11,7 +11,7 @@
 
 import React from 'react';
 import { Link } from 'react-router';
-import { List } from "immutable";
+import { List } from 'immutable';
 
 class Nav extends React.Component {
     render() {
