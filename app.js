@@ -10,6 +10,7 @@
 'use strict';
 
 import express from 'express';
+import browserSync from 'browser-sync';
 
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
@@ -71,4 +72,14 @@ app.use((req, res) => {
 /* eslint no-console: 0 */
 app.listen(port.app, () => {
     console.log('Server listening on port', port.app);
+
+    if (isDev) {
+        const browserSyncServer = browserSync.create();
+
+        browserSyncServer.init({
+            logSnippet: false,
+            reloadOnRestart: true,
+            port: port.browserSync
+        });
+    }
 });

@@ -2,7 +2,8 @@
   "watch": [
     "app.js",
     "js/app.js",
-    "js/app/"
+    "js/app/",
+    "js/components/Index.jsx"
   ],
   "ext": "js",
   "execMap": {

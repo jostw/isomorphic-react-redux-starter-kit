@@ -19,16 +19,25 @@ import configureStore from '../stores/configureStore';
 class Index extends React.Component {
     render() {
         const store = configureStore(this.props.initialState);
-        const script = (() => {
-            let src = '/js/script.js';
 
+        const script = (() => {
             if (this.props.isDev) {
-                src = 'http://localhost:' + port.webpack + src;
+                return (
+                    <script src={ `http://localhost:${port.webpack}/js/script.js` }></script>
+                );
             }
 
             return (
-                <script src={ src }></script>
+                <script src='/js/script.js'></script>
             );
+        })();
+
+        const browserSync = (() => {
+            if (this.props.isDev) {
+                return (
+                    <script src={ `http://localhost:${port.browserSync}/browser-sync/browser-sync-client.js` }></script>
+                );
+            }
         })();
 
         return (
@@ -51,6 +60,7 @@ class Index extends React.Component {
                     </div>
 
                     { script }
+                    { browserSync }
                 </body>
             </html>
         );

@@ -12,6 +12,7 @@
 module.exports = {
     port: {
         app: 3000,
-        webpack: 3001
+        webpack: 3001,
+        browserSync: 3002
     }
 };
