@@ -19,7 +19,7 @@ import { match } from 'react-router';
 import { port } from './config';
 import { routesConfig } from './js/app/config';
 import routes from './js/app/routes';
-import fetch from './js/app/fetch';
+import fetch from 'isomorphic-fetch';
 
 import Index from './js/components/Index.jsx';
 
@@ -60,12 +60,17 @@ app.use((req, res) => {
         requestCount = 0;
         requestTime = new Date();
 
-        fetch(url)
-            .then(initialState => {
-                const index = React.createElement(Index, { isDev, renderProps, initialState });
+        fetch(url, {
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        })
+        .then(response => response.json())
+        .then(json => {
+            const index = React.createElement(Index, { isDev, renderProps, initialState: json });
 
-                res.send('<!DOCTYPE html>' + ReactDOMServer.renderToStaticMarkup(index));
-            });
+            res.send('<!DOCTYPE html>' + ReactDOMServer.renderToStaticMarkup(index));
+        });
     });
 });
 

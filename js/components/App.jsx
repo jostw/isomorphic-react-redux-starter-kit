@@ -13,8 +13,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { List } from 'immutable';
 
-import fetch from '../app/fetch';
-import { updateTime } from '../actions';
+import { updateTime, fetchData } from '../actions';
 
 import Nav from './Nav.jsx';
 
@@ -26,7 +25,9 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-        this.fetchData(this.props.location.pathname);
+        const { dispatch, location } = this.props;
+
+        dispatch(fetchData(location.pathname));
     }
 
     componentWillReceiveProps(nextProps) {
@@ -34,7 +35,9 @@ class App extends React.Component {
             return;
         }
 
-        this.fetchData(nextProps.location.pathname);
+        const { dispatch } = this.props;
+
+        dispatch(fetchData(nextProps.location.pathname));
     }
 
     render() {
@@ -47,17 +50,12 @@ class App extends React.Component {
         );
     }
 
-    fetchData(url) {
-        fetch(url)
-            .then(data => {
-                this.props.dispatch(updateTime(data.time));
-            });
-    }
-
     updateTime(e) {
         e.preventDefault();
 
-        this.props.dispatch(updateTime(new Date().toISOString()));
+        const { dispatch } = this.props;
+
+        dispatch(updateTime(new Date().toISOString()));
     }
 }
 

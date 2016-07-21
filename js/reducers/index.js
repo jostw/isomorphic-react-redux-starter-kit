@@ -13,7 +13,7 @@ import { combineReducers } from 'redux';
 import { List } from 'immutable';
 
 import { routesConfig } from '../app/config';
-import { UPDATE_TIME } from '../actions';
+import { UPDATE_TIME, RECEIVE_DATA } from '../actions';
 
 function navigation() {
     return List([
@@ -26,6 +26,8 @@ function time(state = '', action) {
     switch(action.type) {
         case UPDATE_TIME:
             return action.time;
+        case RECEIVE_DATA:
+            return action.json.time;
         default:
             return state;
     }
