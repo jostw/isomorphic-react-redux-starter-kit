@@ -9,12 +9,17 @@
 
 'use strict';
 
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunkMiddleware from 'redux-thunk';
+
 import indexReducer from '../reducers';
 
 export default function configureStore(initialState) {
     return createStore(
         indexReducer,
-        initialState
+        initialState,
+        applyMiddleware(
+            thunkMiddleware
+        )
     );
 }
